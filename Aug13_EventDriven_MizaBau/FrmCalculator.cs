@@ -8,47 +8,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Aug13_EventDriven_MizaBau.FrmCalculator;
 
 namespace Aug13_EventDriven_MizaBau
 {
+
+    public delegate T Formula<T>(T arg1, T arg2);
+    public class CalculatorClass
+    {
+
+        //STEP 5. GENERIC DELEGATE VARIABLE
+        public Formula<double> info;
+
+        //STEP 6. METHOD
+        public static double GetSum(double num1, double num2)
+        {
+            return num1 + num2;
+        }
+        public static double GetDifference(double num1, double num2)
+        {
+            return num1 - num2;
+        }
+        //STEP 12. CHALLENGE EXERCISE GetProduct GetQuotient
+        public static double GetProduct(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+
+        public static double GetQuotient(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+    }
     //STEP 4. CALCULATOR CLASS & DELEGATE
     public partial class FrmCalculator : Form
     {
-        public delegate T Formula<T>(T arg1);
-        public class CalculatorClass
-        {
-
-            //STEP 5. GENERIC DELEGATE VARIABLE
-            public Formula<double> info;
-
-            //STEP 6. METHOD
-            public static double GetSum(double num1, double num2
-            {
-                double sum = num1 + num2;
-                return sum;
-            }
-            public static double GetDifference(double num1, double num2)
-            {
-                double diff = num1 - num2;
-                return diff;
-            }
-            //STEP 12. CHALLENGE EXERCISE GetProduct GetQuotient
-            public static double GetProduct(double num1, double num2)
-            {
-                double prod = num1 * num2;
-                return prod;
-            }
-
-            public static double GetQuotient(double num1, double num2)
-            {
-                double quo = num1 * num2;
-                return quo;
-            }
-        }
 
 
         //Step 7. EVENT
-        public event Formula<double> CalculatorEvent
+        public event Formula<double> CalculateEvent
         {
             add
             {
@@ -60,13 +58,14 @@ namespace Aug13_EventDriven_MizaBau
             }
 
         }
+
+
         public FrmCalculator()
         {
             InitializeComponent();
-            //STEP 8. INSTANTIATE
+            //STEP 8. INSTANTIATE 
             CalculatorClass cal;
             cal = new CalculatorClass();
-
         }
 
         //STEP 9. VARIABLES
@@ -77,6 +76,26 @@ namespace Aug13_EventDriven_MizaBau
             //STEP 10. Get Value
             num1 = Convert.ToDouble(txtBoxInput1.Text);
             num2 = Convert.ToDouble(txtBoxInput2.Text);
+
+            //STEP 13. CHALLENGE EXERCISE VALIDATION
+            switch (cbOperator.Text)
+            {
+                case "+":
+                    CalculateEvent += new Formula<double>(CalculatorClass.GetSum);
+                    lblDisplayTotal.Text = CalculatorClass.GetSum(num1, num2).ToString();
+                    CalculateEvent -= new Formula
+                    break;
+                case "-":
+                    break;
+                case "*":
+                    break;
+                case "/":
+                    break;
+                default:
+
+                    break;
+
+            }
 
         }
 
