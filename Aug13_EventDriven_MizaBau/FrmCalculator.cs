@@ -15,19 +15,19 @@ namespace Aug13_EventDriven_MizaBau
     public partial class FrmCalculator : Form
     {
         public delegate T Formula<T>(T arg1);
-        internal class CalculatorClass
+        public class CalculatorClass
         {
 
             //STEP 5. GENERIC DELEGATE VARIABLE
             public Formula<double> info;
 
             //STEP 6. METHOD
-            public static Double GetSum(double num1, double num2, double sum)
+            public static double GetSum(double num1, double num2, double sum)
             {
                 sum = num1 + num2;
                 return sum;
             }
-            public static Double GetDifference(double num1, double num2, double sum)
+            public static double GetDifference(double num1, double num2, double sum)
             {
                 sum = num1 + num2;
                 return sum;
@@ -37,17 +37,34 @@ namespace Aug13_EventDriven_MizaBau
 
 
         //Step 7. EVENT
-        public static event Formula<double> CalculatorEvent;
+        public event Formula<double> CalculatorEvent
+        {
+            add
+            {
+                Console.WriteLine("Added the Delegate");
+            }
+            remove
+            {
+                Console.WriteLine("Removed a Delegate");
+            }
+
+        }
         public FrmCalculator()
         {
             InitializeComponent();
+            //STEP 8. INSTANTIATE
+            CalculatorClass cal;
+            cal = new CalculatorClass();
+
         }
 
-        double getNum1, getNum2;
+        //STEP 9. VARIABLES
+        double num1, num2;
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            getNum1 = Convert.ToDouble(txtBoxInput1.Text);
-            getNum2 = Convert.ToDouble(txtBoxInput2.Text);
+            num1 = Convert.ToDouble(txtBoxInput1.Text);
+            num2 = Convert.ToDouble(txtBoxInput2.Text);
+
         }
 
 
