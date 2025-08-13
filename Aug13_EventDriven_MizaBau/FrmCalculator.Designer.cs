@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBoxInput1 = new System.Windows.Forms.TextBox();
             this.cbOperator = new System.Windows.Forms.ComboBox();
-            this.tBox_num2 = new System.Windows.Forms.TextBox();
+            this.txtBoxInput2 = new System.Windows.Forms.TextBox();
             this.Answer = new System.Windows.Forms.Label();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.btnEqual = new System.Windows.Forms.Button();
@@ -85,14 +85,14 @@
             this.cbOperator.Size = new System.Drawing.Size(54, 27);
             this.cbOperator.TabIndex = 3;
             // 
-            // tBox_num2
+            // txtBoxInput2
             // 
-            this.tBox_num2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tBox_num2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBox_num2.Location = new System.Drawing.Point(221, 134);
-            this.tBox_num2.Name = "tBox_num2";
-            this.tBox_num2.Size = new System.Drawing.Size(133, 26);
-            this.tBox_num2.TabIndex = 4;
+            this.txtBoxInput2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBoxInput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxInput2.Location = new System.Drawing.Point(221, 134);
+            this.txtBoxInput2.Name = "txtBoxInput2";
+            this.txtBoxInput2.Size = new System.Drawing.Size(133, 26);
+            this.txtBoxInput2.TabIndex = 4;
             // 
             // Answer
             // 
@@ -126,6 +126,7 @@
             this.btnEqual.TabIndex = 7;
             this.btnEqual.Text = "Calculate";
             this.btnEqual.UseVisualStyleBackColor = true;
+            this.btnEqual.Click += new System.EventHandler(this.btnEqual_Click);
             // 
             // label3
             // 
@@ -170,7 +171,7 @@
             this.btn_minimize.UseVisualStyleBackColor = false;
             this.btn_minimize.Click += new System.EventHandler(this.btn_minimize_Click);
             // 
-            // Form1
+            // FrmCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,14 +184,14 @@
             this.Controls.Add(this.btnEqual);
             this.Controls.Add(this.lblDisplayTotal);
             this.Controls.Add(this.Answer);
-            this.Controls.Add(this.tBox_num2);
+            this.Controls.Add(this.txtBoxInput2);
             this.Controls.Add(this.cbOperator);
             this.Controls.Add(this.txtBoxInput1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FrmCalculator";
             this.Text = "Calculator";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -205,7 +206,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoxInput1;
         private System.Windows.Forms.ComboBox cbOperator;
-        private System.Windows.Forms.TextBox tBox_num2;
+        private System.Windows.Forms.TextBox txtBoxInput2;
         private System.Windows.Forms.Label Answer;
         private System.Windows.Forms.Label lblDisplayTotal;
         private System.Windows.Forms.Button btnEqual;
