@@ -22,17 +22,28 @@ namespace Aug13_EventDriven_MizaBau
             public Formula<double> info;
 
             //STEP 6. METHOD
-            public static double GetSum(double num1, double num2, double sum)
+            public static double GetSum(double num1, double num2
             {
-                sum = num1 + num2;
+                double sum = num1 + num2;
                 return sum;
             }
-            public static double GetDifference(double num1, double num2, double sum)
+            public static double GetDifference(double num1, double num2)
             {
-                sum = num1 + num2;
-                return sum;
+                double diff = num1 - num2;
+                return diff;
+            }
+            //STEP 12. CHALLENGE EXERCISE GetProduct GetQuotient
+            public static double GetProduct(double num1, double num2)
+            {
+                double prod = num1 * num2;
+                return prod;
             }
 
+            public static double GetQuotient(double num1, double num2)
+            {
+                double quo = num1 * num2;
+                return quo;
+            }
         }
 
 
@@ -62,6 +73,8 @@ namespace Aug13_EventDriven_MizaBau
         double num1, num2;
         private void btnEqual_Click(object sender, EventArgs e)
         {
+
+            //STEP 10. Get Value
             num1 = Convert.ToDouble(txtBoxInput1.Text);
             num2 = Convert.ToDouble(txtBoxInput2.Text);
 
